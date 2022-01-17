@@ -3,7 +3,7 @@
 
 This is a rewrite of the [Blues Brothers](https://www.mobygames.com/game/blues-brothers) and [Blues Brothers: Jukebox Adventure](https://www.mobygames.com/game/blues-brothers-jukebox-adventure) game engines developed by [Titus Interactive](https://www.mobygames.com/company/titus-interactive-sa).
 
-![Screenshot1](blues1.png) ![Screenshot2](bbja2.png)
+![Screenshot1](screenshots/blues1.png) ![Screenshot2](screenshots/bbja2.png)
 
 There is also support for [Prehistorik 2](https://www.mobygames.com/game/prehistorik-2).
 

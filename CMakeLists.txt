@@ -25,24 +25,27 @@ set(P2_SRCS p2/bosses.c p2/game.c p2/level.c p2/monsters.c p2/resource.c p2/scre
 
 set(TARGET_SRCS ${BB_SRCS})
 set(TARGET_INCS "bb/")
-set(TARGET_DATA "bb_data")
+set(TARGET_DATA "bb_")
 set(VITA_APP_NAME "Blues Brothers")
+set(VITA_VPK_NAME "blues-bros.vpk")
 set(VITA_TITLEID  "BLUES0001")
 
 if(DEFINED TARGET_GAME)
-    if(TARGET_GAME EQUAL "JA")
+    if(TARGET_GAME STREQUAL "JA")
         set(TARGET_SRCS ${JA_SRCS})
         set(TARGET_INCS "ja/")
-        set(TARGET_DATA "ja_data")
+        set(TARGET_DATA "ja_")
         set(VITA_APP_NAME "BB: Jukebox Adventure")
+        set(VITA_VPK_NAME "bb-jukebox.vpk")
         set(VITA_TITLEID  "BLUES0002")
     endif()
-    if(TARGET_GAME EQUAL "P2")
+    if(TARGET_GAME STREQUAL "P2")
         set(TARGET_SRCS ${P2_SRCS})
         set(TARGET_INCS "p2/")
-        set(TARGET_DATA "p2_data")
+        set(TARGET_DATA "p2_")
         set(VITA_APP_NAME "Prehistorik 2")
-        set(VITA_TITLEID  "BLUES0003")
+        set(VITA_VPK_NAME "prehistorik-2.vpk")
+        set(VITA_TITLEID  "PREHIST01")
     endif()
 endif()
 
@@ -75,12 +78,12 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 vita_create_self(eboot.bin ${PROJECT_NAME})
-vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} eboot.bin
+vita_create_vpk(${VITA_VPK_NAME} ${VITA_TITLEID} eboot.bin
   VERSION ${VITA_VERSION}
   NAME ${VITA_APP_NAME}
-  FILE sce_sys/icon0.png sce_sys/icon0.png
-  FILE sce_sys/bg.png sce_sys/livearea/contents/bg.png
-  FILE sce_sys/startup.png sce_sys/livearea/contents/startup.png
+  FILE sce_sys/${TARGET_DATA}icon0.png sce_sys/icon0.png
+  FILE sce_sys/${TARGET_DATA}bg.png sce_sys/livearea/contents/bg.png
+  FILE sce_sys/${TARGET_DATA}startup.png sce_sys/livearea/contents/startup.png
   FILE sce_sys/template.xml sce_sys/livearea/contents/template.xml
-  FILE ${TARGET_DATA} data
+  FILE ${TARGET_DATA}data data
 )
