@@ -1,5 +1,5 @@
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include "sys.h"
 #include "util.h"
 
@@ -419,17 +419,16 @@ static void handle_controlleraxis(int axis, int value, struct input_t *input) {
 
 static void handle_controllerbutton(int button, bool pressed, struct input_t *input) {
 	switch (button) {
-	case SDL_CONTROLLER_BUTTON_A:
 	case SDL_CONTROLLER_BUTTON_B:
 	case SDL_CONTROLLER_BUTTON_X:
 	case SDL_CONTROLLER_BUTTON_Y:
 		input->space = pressed;
 		break;
 	case SDL_CONTROLLER_BUTTON_BACK:
+	case SDL_CONTROLLER_BUTTON_START:
 		input->escape = pressed;
 		break;
-	case SDL_CONTROLLER_BUTTON_START:
-		break;
+	case SDL_CONTROLLER_BUTTON_A:
 	case SDL_CONTROLLER_BUTTON_DPAD_UP:
 		if (pressed) {
 			input->direction |= INPUT_DIRECTION_UP;
@@ -550,11 +549,11 @@ static int handle_event(const SDL_Event *ev, bool *paused) {
 			handle_controllerbutton(ev->cbutton.button, 1, &g_sys.input);
 		}
 		break;
-	case SDL_CONTROLLERAXISMOTION:
+	/*case SDL_CONTROLLERAXISMOTION:
 		if (_controller) {
 			handle_controlleraxis(ev->caxis.axis, ev->caxis.value, &g_sys.input);
 		}
-		break;
+		break;*/
 	case SDL_JOYHATMOTION:
 		if (_joystick) {
 			handle_joystickhatmotion(ev->jhat.value, &g_sys.input);

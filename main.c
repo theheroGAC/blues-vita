@@ -6,7 +6,7 @@
 
 struct options_t g_options;
 
-static const char *DEFAULT_DATA_PATH = ".";
+static const char *DEFAULT_DATA_PATH = "data";
 
 static const int DEFAULT_SCALE_FACTOR = 2;
 
@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 	const char *data_path = DEFAULT_DATA_PATH;
 	int scale_factor = DEFAULT_SCALE_FACTOR;
 	const char *scale_filter = DEFAULT_SCALE_FILTER;
-	bool fullscreen = false;
+	bool fullscreen = true;
 	if (argc == 2) {
 		struct stat st;
 		if (stat(argv[1], &st) == 0 && S_ISDIR(st.st_mode)) {
