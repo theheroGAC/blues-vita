@@ -8,7 +8,7 @@ struct options_t g_options;
 
 static const char *DEFAULT_DATA_PATH = "data";
 
-static const int DEFAULT_SCALE_FACTOR = 2;
+static const int DEFAULT_SCALE_FACTOR = 3;
 
 static const char *DEFAULT_SCALE_FILTER = 0; // nearest pixel sampling
 

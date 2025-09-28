@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
 
 if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
   if(DEFINED ENV{VITASDK})
@@ -65,6 +65,7 @@ target_link_libraries(${PROJECT_NAME}
   SceDisplay_stub
   SceCtrl_stub
   SceAudio_stub
+  SceAudioIn_stub
   SceSysmodule_stub
   SceGxm_stub
   SceCommonDialog_stub

@@ -282,7 +282,7 @@ static void sdl2_transition_screen(enum sys_transition_e type, bool open) {
 		SDL_RenderClear(_renderer);
 		SDL_RenderCopy(_renderer, _texture, &r, &r);
 		SDL_RenderPresent(_renderer);
-		SDL_Delay(30);
+		SDL_Delay(15);
 	} while (r.x > 0 && (type == TRANSITION_CURTAIN || r.y > 0));
 }
 
@@ -385,7 +385,7 @@ static void handle_keyevent(int keysym, bool keydown, struct input_t *input) {
 	}
 }
 
-static void handle_controlleraxis(int axis, int value, struct input_t *input) {
+/* static void handle_controlleraxis(int axis, int value, struct input_t *input) {
 	static const int THRESHOLD = 3200;
 	switch (axis) {
 	case SDL_CONTROLLER_AXIS_LEFTX:
@@ -415,7 +415,7 @@ static void handle_controlleraxis(int axis, int value, struct input_t *input) {
 		}
 		break;
 	}
-}
+} */
 
 static void handle_controllerbutton(int button, bool pressed, struct input_t *input) {
 	switch (button) {

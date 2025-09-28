@@ -2690,7 +2690,7 @@ static void level_sync() {
 	}
 	g_sys.update_screen(g_res.vga, 1);
 	g_sys.render_clear_sprites();
-	const int diff = (g_vars.timestamp + (1000 / 30)) - g_sys.get_timestamp();
+	const int diff = (g_vars.timestamp + 40) - g_sys.get_timestamp();
 	g_sys.sleep(MAX(diff, 10));
 	g_vars.timestamp = g_sys.get_timestamp();
 }
